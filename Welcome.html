@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>La Alma Café</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+       body {
+            background: url('La Alma Cafe.png') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+            margin: 0;
+            padding: 0;
+       }
+      
+      .logbox {
+        border: 1px solid #030303; 
+        padding: 20px; 
+        border-radius: 8px; 
+        background-color: #EFDECD;
+        max-width: 600px;
+        min-height: 500px;
+      }
+      .logbox img {
+        max-width: 100%; 
+        height: auto; 
+        border-radius: 8px; 
+      }
+      .glass {
+          width: 140px;
+          height: 220px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(14px);
+          border-radius: 20px;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          text-decoration: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-size: 10rem;
+          color: #ffffff;
+        }
+
+        .glass:hover {
+            transform: scale(1.09);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+        .secret{
+           background: transparent;
+          border: none;
+          outline: none;
+        }
+              
+    </style>
+  </head>
+  <body>
+  <div class="container-fluid vh-100">
+    <div class="row h-100">
+        <div class="col-9  ps-5">
+            <input type="password" placeholder="********" class="secret" id="admin123">
+        </div>
+
+        <!-- RIGHT SIDE (BUTTON) -->
+        <div class="col-3 d-flex align-items-center justify-content-end pe-5">
+            <a href="OrderingSystem.php" class="btn btn-light glass w-100 h-50" id="enter">🡢</a>
+
+        </div>
+
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  
+  <script>
+      const CORRECT_PASSWORD = "secretentry"; 
+      const ADMIN = "AdminMenu.php";
+      const CUSTOMER = "OrderingSystem.php"
+      const passwordInput = document.getElementById('admin123');
+      const loginButton = document.getElementById('enter');
+
+      loginButton.addEventListener('click', function(event) {
+        
+          event.preventDefault(); 
+          
+          // Get the password that was entered
+          const enteredPassword = passwordInput.value;
+
+          if (enteredPassword === CORRECT_PASSWORD) {
+            
+              window.location.href = ADMIN; 
+              
+          } else {
+              
+              window.location.href = CUSTOMER; 
+          }
+      });
+    </script>
+  </body>
+</html>
